@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijkstra Algorithm Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>🗺️ Dijkstra Algorithm Visualizer</h2>
+
+    <div id="controls">
+        <label for="nodeCount">Nodes: </label>
+        <select id="nodeCount">
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7" selected>7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+
+        <label for="density">Edge Density: </label>
+        <select id="density">
+            <option value="0.3">Sparse</option>
+            <option value="0.5" selected>Medium</option>
+            <option value="0.7">Dense</option>
+        </select>
+
+        <button id="randBtn">🎲 Generate Random Graph</button>
+
+        <label for="src">Source: </label>
+        <select id="src"></select>
+        <label for="dst">Destination: </label>
+        <select id="dst"></select>
+        <button id="runBtn">🚀 Find Shortest Path</button>
+        <button id="resetBtn">🔄 Reset</button>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="graphCanvas" width="900" height="600"></canvas>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <div>Finding shortest path...</div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color" style="background: lightgray;"></div>
+            <span>Unvisited Node</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #ffeb3b;"></div>
+            <span>Current Node</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: orange;"></div>
+            <span>Path Node</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-line" style="background: white;"></div>
+            <span>Edge</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-line" style="background: red;"></div>
+            <span>Shortest Path</span>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-value" id="nodeCountStat">0</span>
+            <div class="stat-label">Nodes</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="edgeCountStat">0</span>
+            <div class="stat-label">Edges</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="pathLengthStat">-</span>
+            <div class="stat-label">Path Length</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="pathCostStat">-</span>
+            <div class="stat-label">Path Cost</div>
+        </div>
+    </div>
+
+    <div class="algorithm-info">
+        <h3>💡 About Dijkstra's Algorithm</h3>
+        <p>
+            Dijkstra's algorithm finds the shortest path between nodes in a graph with non-negative edge weights.
+            It works by maintaining a set of unvisited nodes and selecting the node with the smallest distance from the
+            source.
+            The algorithm has a time complexity of O((V + E) log V) using a priority queue.
+        </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
